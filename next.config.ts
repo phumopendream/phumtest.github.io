@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+const isProd = process.env.NODE_ENV === "production"
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    unoptimized: true, // Disable default image optimization
+  },
+  assetPrefix: isProd ? "/phumtest.github.io/" : "",
+  basePath: isProd ? "/phumtest.github.io" : "",
+  output: "export",
+}
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+export default nextConfig
